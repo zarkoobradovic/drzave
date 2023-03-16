@@ -1,0 +1,49 @@
+
+
+<div class="container" style="margin-top: 2%; margin-bottom: 2%;">
+
+    <nav class="navbar sticky-top navbar-light bg-dark justify-content-between">
+        <a class="navbar-brand"> <img
+                src="https://www.seekpng.com/png/full/39-396630_globe-vector-png-banner-black-and-white-library.png"
+                style="height: 35px; width: 35px; margin-left: 40%;" alt="world">  </a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Pretraga" aria-label="Search">
+        </form>
+    </nav>
+
+    <div class="table-responsive " style="margin-top: 2%; background-color: white; ">
+
+        <table class="table ">
+            <thead style="background-color: #343a40; color: white;">
+                <tr>
+                    <th scope="col">Zastava</th>
+                    <th scope="col">Država</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Glavni grad</th>
+                    <th scope="col">Br. stanovnika</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let country of countries">
+
+                    <td *ngIf="country.flag" (click)="onCountrySelect(country.flag)" style="cursor: pointer;">
+                        <img src="{{ country.flag }}" width="100px" height="70px" />
+                    </td>
+
+                    <td> {{ country.name }} </td>
+                    <td> {{ country.region }} </td>
+                    <td> {{ country.capital }} </td>
+                    <!--<td> {{ country.population }} </td>-->
+
+                    <td> {{ country.population | number }} </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
